@@ -1,0 +1,111 @@
+{
+  "burgers": [
+    {
+      "id": "classic-beef",
+      "title": "Classic Beef Burger",
+      "description": "Juicy grilled beef patty with fresh toppings.",
+      "image": "https://images.unsplash.com/photo-1550547660-d9450f859349",
+      "steps": [
+        {
+          "id": "bun",
+          "type": "multiple-choice",
+          "instruction": "Choose your bun",
+          "options": ["Sesame", "Brioche", "Lettuce Wrap"]
+        },
+        {
+          "id": "protein",
+          "type": "multiple-choice",
+          "instruction": "Choose your protein",
+          "options": ["Beef", "Chicken", "Plant-Based"]
+        },
+        {
+          "id": "toppings",
+          "type": "multiple-choice",
+          "instruction": "Choose your toppings",
+          "options": ["Lettuce", "Tomato", "Pickles", "Onions"]
+        },
+        {
+          "id": "sauceAmount",
+          "type": "text",
+          "instruction": "Enter number of sauce servings",
+          "feedback": {
+            "message": "Too much sauce might overpower the flavor!"
+          }
+        },
+        {
+          "id": "presentation",
+          "type": "image-selection",
+          "instruction": "Choose burger presentation",
+          "imageOptions": [
+            {
+              "url": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+              "label": "Stacked Style"
+            },
+            {
+              "url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+              "label": "Loaded Style"
+            },
+            {
+              "url": "https://images.unsplash.com/photo-1550317138-10000687a72b",
+              "label": "Simple Style"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "grilled-chicken",
+      "title": "Grilled Chicken Burger",
+      "description": "Tender grilled chicken breast with fresh flavors.",
+      "image": "https://images.unsplash.com/photo-1606756790138-261d2b21cd43",
+      "steps": [
+        {
+          "id": "bun",
+          "type": "multiple-choice",
+          "instruction": "Choose your bun",
+          "options": ["Whole Wheat", "Brioche", "Lettuce Wrap"]
+        },
+        {
+          "id": "cheese",
+          "type": "multiple-choice",
+          "instruction": "Choose your cheese",
+          "options": ["Cheddar", "Swiss", "Pepper Jack", "None"]
+        },
+        {
+          "id": "extras",
+          "type": "multiple-choice",
+          "instruction": "Choose extras",
+          "options": ["Bacon", "Avocado", "Fried Egg", "None"]
+        },
+        {
+          "id": "sauceAmount",
+          "type": "text",
+          "instruction": "Enter number of sauce servings",
+          "feedback": {
+            "message": "That might be too much sauce!"
+          }
+        },
+        {
+          "id": "presentation",
+          "type": "image-selection",
+          "instruction": "Choose burger presentation",
+          "imageOptions": [
+            {
+              "url": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
+              "label": "Classic Style"
+            },
+            {
+              "url": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+              "label": "Deluxe Style"
+            },
+            {
+              "url": "https://images.unsplash.com/photo-1561758033-d89a9ad46330",
+              "label": "Minimal Style"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
