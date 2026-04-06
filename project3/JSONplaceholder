@@ -38,7 +38,7 @@
           "instruction": "Choose burger presentation",
           "imageOptions": [
             {
-              "url": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+              "": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
               "label": "Stacked Style"
             },
             {
