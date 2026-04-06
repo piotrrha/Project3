@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Kiosk</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <!-- home template -->
+  <script id="home-template" type="text/x-handlebars-template">
+  <section class="screen home-screen">
+    <div class="screen-card home-card">
+      <h1 class="screen-title">Burger Kiosk</h1>
+      <p class="screen-subtitle">
+        Build your burger, customize it, review your order, and check out.
+      </p>
+
+      <div class="home-image-wrap">
+        <img src="burger1.png" alt="Featured Burger" class="hero-image">
+      </div>
+
+      <div class="button-stack">
+        <button id="startOrderBtn" class="primary-btn">Start Order</button>
+        <button id="viewQueueBtn" class="secondary-btn">View Queue</button>
+        <button id="adminBtn" class="secondary-btn">Admin</button>
+      </div>
+    </div>
+  </section>
+</script>
+
+  <!-- choose template -->
+  <script id="choose-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="top-row">
+      <h2 class="screen-title-small">Choose Your Burger</h2>
+      <button id="backHomeBtn" class="secondary-btn small-btn">Back</button>
+    </div>
+
+    <div class="burger-grid">
+      {{#each burgers}}
+        <div class="burger-card">
+          <img src="{{image}}" alt="{{name}}" class="burger-img">
+          <h3>{{name}}</h3>
+          <p>{{description}}</p>
+          <p class="price-text">${{price}}</p>
+          <button class="selectBurgerBtn primary-btn" data-id="{{id}}">
+            Select
+          </button>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</script>
+
+  <!-- order template -->
+  <script id="order-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="top-row">
+      <h2 class="screen-title-small">Customize Your Order</h2>
+      <button id="backChooseBtn" class="secondary-btn small-btn">Back</button>
+    </div>
+
+    <div class="screen-card order-layout">
+      <div class="order-image-side">
+        <img src="{{burger.image}}" alt="{{burger.name}}" class="burger-img large-img">
+      </div>
+
+      <div class="order-form-side">
+        <h3>{{burger.name}}</h3>
+        <p>{{burger.description}}</p>
+        <p class="price-text">Base Price: ${{burger.price}}</p>
+
+        <form id="customizeForm" class="custom-form">
+          <label><input type="checkbox" name="noOnions"> No onions</label>
+          <label><input type="checkbox" name="noTomatoes"> No tomatoes</label>
+          <label><input type="checkbox" name="noMayo"> No mayo</label>
+          <label><input type="checkbox" name="bacon"> Add bacon (+2.00)</label>
+          <label><input type="checkbox" name="doublePatty"> Double patty (+3.50)</label>
+
+          <div class="qty-row">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+          </div>
+
+          <div class="button-row">
+            <button type="submit" class="primary-btn">Add to Cart</button>
+            <button type="button" id="cancelCustomizationBtn" class="secondary-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</script>
+
+  <!-- review template -->
+  <script id="review-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="top-row">
+      <h2 class="screen-title-small">Review Your Order</h2>
+      <button id="backToChooseBtn" class="secondary-btn small-btn">Add More</button>
+    </div>
+
+    <div class="screen-card">
+      {{#if cart.length}}
+        <ul class="order-list">
+          {{#each cart}}
+            <li class="order-item">
+              <div>
+                <strong>{{name}}</strong>
+                <div class="small-text">
+                  Qty: {{quantity}}
+                  {{#if noOnions}} | No onions{{/if}}
+                  {{#if noTomatoes}} | No tomatoes{{/if}}
+                  {{#if noMayo}} | No mayo{{/if}}
+                  {{#if bacon}} | + bacon{{/if}}
+                  {{#if doublePatty}} | + double patty{{/if}}
+                </div>
+              </div>
+
+              <div class="item-controls">
+                <span>${{lineTotal}}</span>
+                <button class="removeItemBtn secondary-btn small-btn" data-id="{{id}}">
+                  Remove
+                </button>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+
+        <div class="totals-box">
+          <p>Items: {{itemCount}}</p>
+          <p>Subtotal: ${{subtotal}}</p>
+          <p>Tax: ${{tax}}</p>
+          <h3>Total: ${{total}}</h3>
+        </div>
+
+        <div class="button-row">
+          <button id="clearCartBtn" class="secondary-btn">Clear Order</button>
+          <button id="continueToPaymentSelectBtn" class="primary-btn">Continue</button>
+        </div>
+      {{else}}
+        <p>Your cart is empty.</p>
+        <button id="emptyCartBackBtn" class="primary-btn">Choose a Burger</button>
+      {{/if}}
+    </div>
+  </section>
+</script>
+
+  <!-- select payment template -->
+  <script id="select-payment-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="top-row">
+      <h2 class="screen-title-small">Select Payment Method</h2>
+      <button id="backReviewBtn" class="secondary-btn small-btn">Back</button>
+    </div>
+
+    <div class="screen-card payment-choice-card">
+      <p class="screen-subtitle">Choose how you would like to pay.</p>
+
+      <div class="payment-method-grid">
+        <button id="cashPaymentBtn" class="payment-method-btn">Cash</button>
+        <button id="cardPaymentBtn" class="payment-method-btn">Card</button>
+      </div>
+    </div>
+  </section>
+</script>
+
+  <!-- payment template -->
+  <script id="payment-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="top-row">
+      <h2 class="screen-title-small">Payment</h2>
+      <button id="backPaymentMethodBtn" class="secondary-btn small-btn">Back</button>
+    </div>
+
+    <div class="screen-card">
+      <p><strong>Payment Method:</strong> {{paymentMethod}}</p>
+      <p><strong>Total Due:</strong> ${{total}}</p>
+
+      {{#if isCard}}
+        <form id="cardPaymentForm" class="custom-form">
+          <label>
+            Cardholder Name
+            <input type="text" id="cardName" required>
+          </label>
+
+          <label>
+            Card Number
+            <input type="text" id="cardNumber" maxlength="16" required>
+          </label>
+
+          <label>
+            Expiration Date
+            <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+          </label>
+
+          <label>
+            CVV
+            <input type="text" id="cardCvv" maxlength="4" required>
+          </label>
+
+          <button type="submit" class="primary-btn">Pay Now</button>
+        </form>
+      {{else}}
+        <div class="cash-box">
+          <p>Please bring your payment to the counter.</p>
+          <button id="confirmCashPaymentBtn" class="primary-btn">Confirm Cash Payment</button>
+        </div>
+      {{/if}}
+    </div>
+  </section>
+</script>
+
+  <!-- queue template -->
+  <script id="queue-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="screen-card queue-card">
+      <h2 class="screen-title-small">Order Queue</h2>
+
+      {{#if orderNumber}}
+        <p class="queue-number">Order #{{orderNumber}}</p>
+        <p>Your order has been received and is now being prepared.</p>
+      {{else}}
+        <p>No active order in queue.</p>
+      {{/if}}
+
+      <div class="button-stack">
+        <button id="queueRefreshBtn" class="secondary-btn">Refresh</button>
+        <button id="queueToCompleteBtn" class="primary-btn">Continue</button>
+        <button id="queueHomeBtn" class="secondary-btn">Home</button>
+      </div>
+    </div>
+  </section>
+</script>
+
+  <!-- complete template -->
+  <script id="complete-template" type="text/x-handlebars-template">
+  <section class="screen complete-screen">
+    <div class="screen-card complete-card">
+      <h2 class="screen-title-small">Order Complete</h2>
+      <p class="success-text">Thank you for your order.</p>
+
+      {{#if orderNumber}}
+        <p>Your order number is <strong>#{{orderNumber}}</strong>.</p>
+      {{/if}}
+
+      <p>Please wait while your food is prepared.</p>
+
+      <div class="button-stack">
+        <button id="newOrderBtn" class="primary-btn">Start New Order</button>
+        <button id="completeHomeBtn" class="secondary-btn">Home</button>
+      </div>
+    </div>
+  </section>
+</script>
+
+  <!-- admin template -->
+  <script id="admin-template" type="text/x-handlebars-template">
+  <section class="screen">
+    <div class="top-row">
+      <h2 class="screen-title-small">Admin Dashboard</h2>
+      <button id="adminBackHomeBtn" class="secondary-btn small-btn">Home</button>
+    </div>
+
+    <div class="screen-card">
+      <h3>Orders in Queue</h3>
+
+      {{#if orders.length}}
+        <ul class="order-list">
+          {{#each orders}}
+            <li class="order-item">
+              <div>
+                <strong>Order #{{orderNumber}}</strong>
+                <div class="small-text">
+                  {{customerName}}
+                </div>
+              </div>
+
+              <div class="item-controls">
+                <span>${{total}}</span>
+                <button class="markCompleteBtn primary-btn small-btn" data-id="{{orderNumber}}">
+                  Mark Complete
+                </button>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>No orders in queue.</p>
+      {{/if}}
+    </div>
+  </section>
+</script>
+
+  <script src="app.js"></script>
+</body>
+</html>

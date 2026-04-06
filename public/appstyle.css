@@ -1,0 +1,433 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #111827;
+  color: #ffffff;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* GENERAL SCREEN LAYOUT */
+.screen {
+  min-height: 100vh;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, #111827, #7f1d1d);
+}
+
+.screen-card {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(31, 41, 55, 0.96);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.screen-title {
+  font-size: 3rem;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.screen-title-small {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.screen-subtitle {
+  text-align: center;
+  color: #d1d5db;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.top-row {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* HOME */
+.home-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-card,
+.complete-card,
+.queue-card {
+  max-width: 760px;
+  text-align: center;
+}
+
+.home-image-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 30px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* BUTTONS */
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.primary-btn,
+.secondary-btn,
+.payment-method-btn {
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.primary-btn {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.secondary-btn {
+  background: #374151;
+  color: #ffffff;
+}
+
+.payment-method-btn {
+  background: #1f2937;
+  color: #ffffff;
+  border: 1px solid #4b5563;
+  min-height: 110px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.payment-method-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.96;
+}
+
+.small-btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* CHOOSE SCREEN */
+.burger-grid {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.burger-card {
+  background: rgba(31, 41, 55, 0.96);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.burger-card h3 {
+  margin: 4px 0 0;
+  font-size: 1.2rem;
+}
+
+.burger-card p {
+  margin: 0;
+  color: #d1d5db;
+  line-height: 1.45;
+}
+
+.burger-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #0f172a;
+}
+
+.large-img {
+  height: 320px;
+}
+
+.price-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  margin-top: 6px !important;
+}
+
+/* ORDER SCREEN */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.order-form-side h3 {
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+.order-form-side p {
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.custom-form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f3f4f6;
+  flex-wrap: wrap;
+}
+
+.custom-form input[type="text"],
+.custom-form input[type="number"] {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #ffffff;
+  outline: none;
+}
+
+.custom-form input[type="text"]:focus,
+.custom-form input[type="number"]:focus {
+  border-color: #ef4444;
+}
+
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.qty-row input {
+  width: 90px;
+}
+
+/* REVIEW + ADMIN */
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #4b5563;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.item-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  min-width: 110px;
+}
+
+.small-text {
+  color: #d1d5db;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.totals-box {
+  margin-top: 22px;
+  padding: 18px;
+  background: #111827;
+  border-radius: 14px;
+}
+
+.totals-box p,
+.totals-box h3 {
+  margin: 8px 0;
+}
+
+/* PAYMENT */
+.payment-choice-card {
+  text-align: center;
+}
+
+.payment-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.cash-box {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #111827;
+}
+
+/* QUEUE + COMPLETE */
+.queue-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 20px 0 10px;
+  color: #fca5a5;
+}
+
+.success-text {
+  font-size: 1.2rem;
+  color: #86efac;
+  margin-bottom: 10px;
+}
+
+/* ADMIN */
+.screen-card h3 {
+  margin-top: 0;
+}
+
+/* UTILITY */
+.hidden {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .large-img {
+    height: 240px;
+  }
+
+  .payment-method-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .screen {
+    padding: 20px 14px;
+  }
+
+  .screen-card {
+    padding: 20px;
+  }
+
+  .screen-title {
+    font-size: 2.2rem;
+  }
+
+  .screen-title-small {
+    font-size: 1.5rem;
+  }
+
+  .top-row {
+    align-items: stretch;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row .primary-btn,
+  .button-row .secondary-btn {
+    width: 100%;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .item-controls {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .hero-image {
+    max-width: 260px;
+  }
+
+  .burger-img {
+    height: 160px;
+  }
+}
