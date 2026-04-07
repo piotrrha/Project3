@@ -1,0 +1,254 @@
+{
+  "burgers": [
+    {
+      "id": 1,
+      "name": "Hamburger",
+      "description": "Classic burger with simple toppings.",
+      "image": "./images/t-mcdonalds-Hamburger.jpg"
+    },
+    {
+      "id": 2,
+      "name": "McDouble",
+      "description": "Double patty burger for a bigger meal.",
+      "image": "./images/t-mcdonalds-McDouble.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Big Mac",
+      "description": "Stacked burger with special sauce.",
+      "image": "./images/t-mcdonalds-Big-Mac.jpg"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "burgerId": 1,
+      "key": "bun",
+      "title": "Choose Your Bun",
+      "prompt": "Pick a bun option.",
+      "inputType": "buttons",
+      "options": ["Sesame Bun", "Plain Bun", "No Bun"],
+      "confirmation": "Bun selected!"
+    },
+    {
+      "id": 2,
+      "burgerId": 1,
+      "key": "protein",
+      "title": "Choose Protein Style",
+      "prompt": "Pick your burger style.",
+      "inputType": "images",
+      "options": [
+        {
+          "label": "Hamburger",
+          "image": "./images/t-mcdonalds-Hamburger.jpg"
+        },
+        {
+          "label": "McDouble Style",
+          "image": "./images/t-mcdonalds-McDouble.jpg"
+        }
+      ],
+      "confirmation": "Protein selected!"
+    },
+    {
+      "id": 3,
+      "burgerId": 1,
+      "key": "toppings",
+      "title": "Choose Toppings",
+      "prompt": "Type the toppings you want.",
+      "inputType": "text",
+      "placeholder": "Example: no onions, extra pickles",
+      "confirmation": "Toppings added!"
+    },
+    {
+      "id": 4,
+      "burgerId": 1,
+      "key": "sauces",
+      "title": "Choose Sauce",
+      "prompt": "Pick one sauce.",
+      "inputType": "buttons",
+      "options": ["Ketchup", "Mayo", "Mustard", "No Sauce"],
+      "confirmation": "Sauce selected!"
+    },
+    {
+      "id": 5,
+      "burgerId": 1,
+      "key": "extras",
+      "title": "Choose an Extra",
+      "prompt": "Pick an extra item.",
+      "inputType": "images",
+      "options": [
+        {
+          "label": "Coca-Cola",
+          "image": "./images/t-mcdonalds-Coca-Cola-Classic-Small.jpg"
+        },
+        {
+          "label": "Vanilla Shake",
+          "image": "./images/t-mcdonalds-Vanilla-McCafe-Shake-Med.jpg"
+        },
+        {
+          "label": "Blueberry Muffin",
+          "image": "./images/t-blueberry-muffin.jpg"
+        }
+      ],
+      "confirmation": "Extra selected!"
+    },
+
+    {
+      "id": 6,
+      "burgerId": 2,
+      "key": "bun",
+      "title": "Choose Your Bun",
+      "prompt": "Pick a bun option.",
+      "inputType": "buttons",
+      "options": ["Sesame Bun", "Plain Bun", "No Bun"],
+      "confirmation": "Bun selected!"
+    },
+    {
+      "id": 7,
+      "burgerId": 2,
+      "key": "protein",
+      "title": "Choose Burger Build",
+      "prompt": "Pick your burger build.",
+      "inputType": "images",
+      "options": [
+        {
+          "label": "Single Patty",
+          "image": "./images/t-mcdonalds-Hamburger.jpg"
+        },
+        {
+          "label": "Double Patty",
+          "image": "./images/t-mcdonalds-McDouble.jpg"
+        }
+      ],
+      "confirmation": "Burger build selected!"
+    },
+    {
+      "id": 8,
+      "burgerId": 2,
+      "key": "toppings",
+      "title": "Choose Toppings",
+      "prompt": "Type the toppings you want.",
+      "inputType": "text",
+      "placeholder": "Example: no onions, extra cheese",
+      "confirmation": "Toppings added!"
+    },
+    {
+      "id": 9,
+      "burgerId": 2,
+      "key": "sauces",
+      "title": "Choose Sauce",
+      "prompt": "Pick one sauce.",
+      "inputType": "buttons",
+      "options": ["Ketchup", "Mayo", "Big Mac Sauce", "No Sauce"],
+      "confirmation": "Sauce selected!"
+    },
+    {
+      "id": 10,
+      "burgerId": 2,
+      "key": "extras",
+      "title": "Choose an Extra",
+      "prompt": "Pick an extra item.",
+      "inputType": "images",
+      "options": [
+        {
+          "label": "Breakfast Item",
+          "image": "./images/breakfast.jpg"
+        },
+        {
+          "label": "Drink",
+          "image": "./images/beverages.jpg"
+        },
+        {
+          "label": "Eat In",
+          "image": "./images/eatin.png"
+        }
+      ],
+      "confirmation": "Extra selected!"
+    },
+
+    {
+      "id": 11,
+      "burgerId": 3,
+      "key": "bun",
+      "title": "Choose Your Bun",
+      "prompt": "Pick a bun option.",
+      "inputType": "buttons",
+      "options": ["Sesame Bun", "Plain Bun", "No Bun"],
+      "confirmation": "Bun selected!"
+    },
+    {
+      "id": 12,
+      "burgerId": 3,
+      "key": "protein",
+      "title": "Choose Burger Style",
+      "prompt": "Pick your burger style.",
+      "inputType": "images",
+      "options": [
+        {
+          "label": "Big Mac",
+          "image": "./images/t-mcdonalds-Big-Mac.jpg"
+        },
+        {
+          "label": "McDouble",
+          "image": "./images/t-mcdonalds-McDouble.jpg"
+        }
+      ],
+      "confirmation": "Burger style selected!"
+    },
+    {
+      "id": 13,
+      "burgerId": 3,
+      "key": "toppings",
+      "title": "Choose Toppings",
+      "prompt": "Type the toppings you want.",
+      "inputType": "text",
+      "placeholder": "Example: no lettuce, extra pickles",
+      "confirmation": "Toppings added!"
+    },
+    {
+      "id": 14,
+      "burgerId": 3,
+      "key": "sauces",
+      "title": "Choose Sauce",
+      "prompt": "Pick one sauce.",
+      "inputType": "buttons",
+      "options": ["Big Mac Sauce", "Ketchup", "Mayo", "No Sauce"],
+      "confirmation": "Sauce selected!"
+    },
+    {
+      "id": 15,
+      "burgerId": 3,
+      "key": "extras",
+      "title": "Choose an Extra",
+      "prompt": "Pick an extra item.",
+      "inputType": "images",
+      "options": [
+        {
+          "label": "Pay Here",
+          "image": "./images/payhere.png"
+        },
+        {
+          "label": "Takeout",
+          "image": "./images/takeout.png"
+        },
+        {
+          "label": "Vanilla Shake",
+          "image": "./images/t-mcdonalds-Vanilla-McCafe-Shake-Med.jpg"
+        }
+      ],
+      "confirmation": "Extra selected!"
+    }
+  ],
+  "feedbackRules": [
+    {
+      "bun": "No Bun",
+      "sauce": "Mayo",
+      "message": "A burger with no bun and mayo may be messy to eat."
+    },
+    {
+      "bun": "Sesame Bun",
+      "sauce": "Big Mac Sauce",
+      "message": "That is a strong flavor combination."
+    }
+  ]
+}
